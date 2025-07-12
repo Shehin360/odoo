@@ -1,0 +1,104 @@
+<div class="home-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="platform-title">Skill Swap Platform</h1>
+      <button class="login-btn" (click)="navigateToLogin()">Login</button>
+    </div>
+  </header>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-controls">
+      <select class="availability-select" [(ngModel)]="selectedAvailability" (change)="onAvailabilityChange()">
+        <option value="All">Availability</option>
+        <option value="Available">Available</option>
+        <option value="Busy">Busy</option>
+        <option value="Offline">Offline</option>
+      </select>
+      
+      <div class="search-box">
+        <input 
+          type="text" 
+          class="search-input" 
+          [(ngModel)]="searchQuery" 
+          placeholder="Search skills..."
+          (keyup.enter)="onSearch()"
+        >
+        <button class="search-btn" (click)="onSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Profiles -->
+  <div class="profiles-container">
+    <div class="profile-card" *ngFor="let profile of userProfiles">
+      <div class="profile-left">
+        <div class="profile-photo">
+          <img [src]="profile.profilePhoto" [alt]="profile.name + ' profile photo'">
+        </div>
+      </div>
+      
+      <div class="profile-center">
+        <h3 class="profile-name">{{ profile.name }}</h3>
+        
+        <div class="skills-section">
+          <div class="skills-offered">
+            <span class="skills-label">Skills Offered →</span>
+            <div class="skills-tags">
+              <span class="skill-tag offered" *ngFor="let skill of profile.skillsOffered">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+          
+          <div class="skills-wanted">
+            <span class="skills-label">Skill wanted →</span>
+            <div class="skills-tags">
+              <span class="skill-tag wanted" *ngFor="let skill of profile.skillsWanted">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-right">
+        <button class="request-btn" (click)="sendRequest(profile.id)">Request</button>
+        <div class="rating">
+          <span class="rating-text">rating</span>
+          <div class="rating-value">
+            <div class="stars">
+              <span 
+                class="star" 
+                *ngFor="let filled of getStarArray(profile.rating); let i = index"
+                [class.filled]="filled"
+              >★</span>
+            </div>
+            <span class="rating-number">{{ profile.rating }}/{{ profile.maxRating }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="pagination-btn" (click)="goToPreviousPage()" [disabled]="currentPage === 1">
+      &lt;
+    </button>
+    
+    <button 
+      class="pagination-btn" 
+      *ngFor="let page of [1,2,3,4,5,6,7]" 
+      [class.active]="page === currentPage"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+    
+    <button class="pagination-btn" (click)="goToNextPage()" [disabled]="currentPage === totalPages">
+      &gt;
+    </button>
+  </div>
+</div>
