@@ -16,6 +16,10 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
+
   onLogin() {
     // TODO: Implement actual login logic
     console.log('Login attempt:', { email: this.email, password: this.password });
