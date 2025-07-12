@@ -4,6 +4,9 @@ ODOO HACKATHON 2025 - A mini Skill Swap Platform that lets users list their skil
 TEAM: Adholokam
 MEMBERS:
  Muhammed BIlal M N (TL) -  muhammedbilalmn585@gmail.com
- Shehin T Shaji
- Ashvin Thadevoos
- Sneha K P
+ 
+ Shehin T Shaji - shehintshaji.mec@gmail.com
+ 
+ Ashvin Thadevoos - ashvinthadevoos.mec@gmail.com
+ 
+ Sneha K P - snehakp.mec@gmail.com
