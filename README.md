@@ -1,0 +1,2 @@
+# odoo
+ODOO HACKATHON 2025 - A mini Skill Swap Platform that lets users list their skills, find others by skills they want, and request swaps. Includes user profiles, availability settings, public/private visibility, swap management, and feedback after exchanges.
