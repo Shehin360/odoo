@@ -1,0 +1,63 @@
+<div class="user-profile-container">
+  <header class="profile-header">
+    <h1>User Profile</h1>
+    <div class="action-buttons">
+      <button class="save-btn" (click)="saveProfile()">Save</button>
+      <button class="discard-btn" (click)="discardChanges()">Discard</button>
+      <button class="swap-btn">Swap request</button>
+      <button class="home-btn">Home</button>
+      <div class="profile-thumbnail">
+        <img [src]="userData.profilePhoto" alt="Profile photo">
+      </div>
+    </div>
+  </header>
+
+  <div class="profile-content">
+    <div class="profile-form">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="userData.name">
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" [(ngModel)]="userData.location">
+      </div>
+
+      <div class="form-group">
+        <label>Skills Offered</label>
+        <div class="skills-container">
+          <span class="skill-tag" *ngFor="let skill of userData.skillsOffered">
+            {{skill}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Skills Wanted</label>
+        <div class="skills-container">
+          <span class="skill-tag" *ngFor="let skill of userData.skillsWanted">
+            {{skill}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Availability</label>
+        <input type="text" [(ngModel)]="userData.availability">
+      </div>
+
+      <div class="form-group">
+        <label>Profile</label>
+        <input type="text" [(ngModel)]="userData.profile">
+      </div>
+    </div>
+
+    <div class="profile-photo-section">
+      <div class="profile-photo">
+        <img [src]="userData.profilePhoto" alt="Profile Photo">
+        <button class="remove-btn">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
